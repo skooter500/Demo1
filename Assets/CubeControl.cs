@@ -10,13 +10,27 @@ public class CubeControl : MonoBehaviour {
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private GameObject tankTarget;
+
+    // Use this for initialization
+    void Start () {
+        tankTarget = GameObject.FindGameObjectWithTag("tankTarget");
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+        //transform.LookAt(tankTarget.transform.position);
+        //transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+
+        //transform.rotation = Quaternion.LookRotation(tankTarget.transform.position - transform.position);
+        //transform.position = Vector3.Lerp(transform.position, tankTarget.transform.position, Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(0, 0, moveSpeed * Time.deltaTime);
